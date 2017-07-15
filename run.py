@@ -1,17 +1,19 @@
 import threading
 import time
-import Serial_Monitor
+
+from Tkinter import Tk
+
+from classes import Serial_Monitor, Window
 
 PORT = 'COM3'
 
 device = Serial_Monitor.Serial_Monitor(PORT)
 
-def run_serial_monitor():
-    while True:
-        device.write('there')
-        time.sleep(2)
-
 if __name__ == '__main__':
-    thread = threading.Thread(target=device.read_and_print)
+    thread = threading.Thread(target=device.read)
     thread.start()
-    run_serial_monitor()
+
+    app = Tk()
+    app.geometry("250x150+300+300")
+    gui = Window.Window(app, device)
+    app.mainloop()
