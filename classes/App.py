@@ -4,7 +4,7 @@ from Tkinter import Frame, Scrollbar, Text, BOTH, RIGHT, Y
 
 from SerialMonitor import SerialMonitor
 
-class Window(Frame):
+class App(Frame):
     def __init__(self, parent):
         Frame.__init__(self, parent, background="white")
 
