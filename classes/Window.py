@@ -2,11 +2,13 @@ import Queue
 
 from Tkinter import Frame, Scrollbar, Text, BOTH, RIGHT, Y
 
+from SerialMonitor import SerialMonitor
+
 class Window(Frame):
-    def __init__(self, parent, serial_monitor):
+    def __init__(self, parent):
         Frame.__init__(self, parent, background="white")
 
-        self.monitor = serial_monitor
+        self.monitor = SerialMonitor()
 
         self.parent = parent
         self.scrollbar = Scrollbar(parent)

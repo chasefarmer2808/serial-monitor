@@ -1,11 +1,16 @@
 import serial
 import Queue
+import threading
+
+PORT = 'COM3'
 
 
-class Serial_Monitor(object):
-    def __init__(self, port):
-        self._monitor = serial.Serial(port)
+class SerialMonitor(object):
+    def __init__(self):
+        self._monitor = serial.Serial(PORT)
         self.queue = Queue.Queue()
+        self.thread = threading.Thread(target=self.read)
+        self.thread.start()
 
     def readline(self, bytes):
         return self._monitor.readline(bytes).decode()
