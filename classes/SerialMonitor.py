@@ -17,6 +17,8 @@ class SerialMonitor(object):
 
     def write(self, data):
         print data
+        data = data.encode('utf-8')
+        data = str.encode(data)
         self._monitor.write(data)
 
     def read(self):

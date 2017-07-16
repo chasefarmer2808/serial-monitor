@@ -5,7 +5,7 @@ from classes import App
 
 def run_app():
     app = Tk()
-    app.geometry("250x150+300+300")
+    app.geometry("500x300+300+300")
     gui = App.App(app)
     app.mainloop()
 
