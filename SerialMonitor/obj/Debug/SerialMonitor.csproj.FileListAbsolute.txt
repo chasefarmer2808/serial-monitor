@@ -1,0 +1,12 @@
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\bin\Debug\SerialMonitor.exe.config
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\bin\Debug\SerialMonitor.exe
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\bin\Debug\SerialMonitor.pdb
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\obj\Debug\SerialMonitor.csprojResolveAssemblyReference.cache
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\obj\Debug\SerialMonitor.Form1.resources
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\obj\Debug\SerialMonitor.Properties.Resources.resources
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\obj\Debug\SerialMonitor.csproj.GenerateResource.Cache
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\obj\Debug\SerialMonitor.exe
+C:\Users\chase\Google Drive\School\Spring 2017\Cansat\SerialMonitor\SerialMonitor\obj\Debug\SerialMonitor.pdb
+C:\Users\chase\Google Drive\Github\SerialMonitor\SerialMonitor\bin\Debug\SerialMonitor.exe.config
+C:\Users\chase\Google Drive\Github\SerialMonitor\SerialMonitor\obj\Debug\SerialMonitor.exe
+C:\Users\chase\Google Drive\Github\SerialMonitor\SerialMonitor\obj\Debug\SerialMonitor.pdb
