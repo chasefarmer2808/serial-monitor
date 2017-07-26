@@ -23,7 +23,6 @@ namespace SerialMonitor
             setBaudSelect();
 
             device.DataReceived += new SerialDataReceivedEventHandler(serialPortDataRecieved);
-            //device.Open();
         }
 
         private void serialPortDataRecieved(object sender, SerialDataReceivedEventArgs e)
@@ -33,7 +32,16 @@ namespace SerialMonitor
 
         private void DisplaySerialData(object sender, EventArgs e)
         {
+            receivedTextBox.AppendText(device.ReadExisting());
+        }
 
+        private void disconnectDevice()
+        {
+            if (device.IsOpen)
+            {
+                device.Close();
+
+            }
         }
 
         private void setAvailablePorts()
@@ -63,10 +71,7 @@ namespace SerialMonitor
 
         private void Form1_FormClosing(Object sender, FormClosedEventArgs e)
         {
-            if (device.IsOpen)
-            {
-                device.Close();
-            }
+            disconnectDevice();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -99,9 +104,20 @@ namespace SerialMonitor
             device.PortName = portSelect.SelectedItem.ToString();
             device.BaudRate = Convert.ToInt32(baudSelect.SelectedItem);
             device.Open();
+            disconnectButton.Enabled = true;
+            connectButton.Enabled = false;
             portSelect.Enabled = false;
             baudSelect.Enabled = false;
             scanButton.Enabled = false;
+        }
+
+        private void disconnectButton_Click(object sender, EventArgs e)
+        {
+            disconnectDevice();
+            disconnectButton.Enabled = false;
+            portSelect.Enabled = true;
+            baudSelect.Enabled = true;
+            scanButton.Enabled = true;
         }
     }
 }

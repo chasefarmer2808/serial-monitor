@@ -36,6 +36,10 @@
             this.baudSelect = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.connectButton = new System.Windows.Forms.Button();
+            this.disconnectButton = new System.Windows.Forms.Button();
+            this.receiveGroup = new System.Windows.Forms.GroupBox();
+            this.receivedTextBox = new System.Windows.Forms.TextBox();
+            this.receiveGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // device
@@ -101,11 +105,44 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
+            // disconnectButton
+            // 
+            this.disconnectButton.Enabled = false;
+            this.disconnectButton.Location = new System.Drawing.Point(782, 12);
+            this.disconnectButton.Name = "disconnectButton";
+            this.disconnectButton.Size = new System.Drawing.Size(146, 67);
+            this.disconnectButton.TabIndex = 6;
+            this.disconnectButton.Text = "Disconnect";
+            this.disconnectButton.UseVisualStyleBackColor = true;
+            this.disconnectButton.Click += new System.EventHandler(this.disconnectButton_Click);
+            // 
+            // receiveGroup
+            // 
+            this.receiveGroup.Controls.Add(this.receivedTextBox);
+            this.receiveGroup.Location = new System.Drawing.Point(17, 112);
+            this.receiveGroup.Name = "receiveGroup";
+            this.receiveGroup.Size = new System.Drawing.Size(942, 296);
+            this.receiveGroup.TabIndex = 7;
+            this.receiveGroup.TabStop = false;
+            this.receiveGroup.Text = "Data Received";
+            // 
+            // receivedTextBox
+            // 
+            this.receivedTextBox.Location = new System.Drawing.Point(15, 28);
+            this.receivedTextBox.Multiline = true;
+            this.receivedTextBox.Name = "receivedTextBox";
+            this.receivedTextBox.ReadOnly = true;
+            this.receivedTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.receivedTextBox.Size = new System.Drawing.Size(912, 262);
+            this.receivedTextBox.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 524);
+            this.Controls.Add(this.receiveGroup);
+            this.Controls.Add(this.disconnectButton);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.baudSelect);
@@ -115,6 +152,8 @@
             this.Name = "Form1";
             this.Text = "Ground Station";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.receiveGroup.ResumeLayout(false);
+            this.receiveGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,6 +167,9 @@
         private System.Windows.Forms.ComboBox baudSelect;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Button disconnectButton;
+        private System.Windows.Forms.GroupBox receiveGroup;
+        private System.Windows.Forms.TextBox receivedTextBox;
     }
 }
 
