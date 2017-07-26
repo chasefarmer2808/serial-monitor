@@ -105,6 +105,8 @@ namespace SerialMonitor
             device.BaudRate = Convert.ToInt32(baudSelect.SelectedItem);
             device.Open();
             disconnectButton.Enabled = true;
+            sendDataButton.Enabled = true;
+            sendDataTextbox.Enabled = true;
             connectButton.Enabled = false;
             portSelect.Enabled = false;
             baudSelect.Enabled = false;
@@ -115,9 +117,20 @@ namespace SerialMonitor
         {
             disconnectDevice();
             disconnectButton.Enabled = false;
+            sendDataTextbox.Enabled = false;
+            sendDataButton.Enabled = false;
             portSelect.Enabled = true;
             baudSelect.Enabled = true;
             scanButton.Enabled = true;
+        }
+
+        private void sendDataButton_Click(object sender, EventArgs e)
+        {
+            if (device.IsOpen)
+            {
+                device.Write(sendDataTextbox.Text);
+                sendDataTextbox.Text = "";
+            }
         }
     }
 }

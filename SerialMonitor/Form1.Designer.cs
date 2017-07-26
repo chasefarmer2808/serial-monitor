@@ -39,7 +39,11 @@
             this.disconnectButton = new System.Windows.Forms.Button();
             this.receiveGroup = new System.Windows.Forms.GroupBox();
             this.receivedTextBox = new System.Windows.Forms.TextBox();
+            this.transmitGroup = new System.Windows.Forms.GroupBox();
+            this.sendDataTextbox = new System.Windows.Forms.TextBox();
+            this.sendDataButton = new System.Windows.Forms.Button();
             this.receiveGroup.SuspendLayout();
+            this.transmitGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // device
@@ -136,11 +140,42 @@
             this.receivedTextBox.Size = new System.Drawing.Size(912, 262);
             this.receivedTextBox.TabIndex = 0;
             // 
+            // transmitGroup
+            // 
+            this.transmitGroup.Controls.Add(this.sendDataButton);
+            this.transmitGroup.Controls.Add(this.sendDataTextbox);
+            this.transmitGroup.Location = new System.Drawing.Point(17, 408);
+            this.transmitGroup.Name = "transmitGroup";
+            this.transmitGroup.Size = new System.Drawing.Size(942, 106);
+            this.transmitGroup.TabIndex = 1;
+            this.transmitGroup.TabStop = false;
+            this.transmitGroup.Text = "Transmit Data";
+            // 
+            // sendDataTextbox
+            // 
+            this.sendDataTextbox.Enabled = false;
+            this.sendDataTextbox.Location = new System.Drawing.Point(15, 45);
+            this.sendDataTextbox.Name = "sendDataTextbox";
+            this.sendDataTextbox.Size = new System.Drawing.Size(764, 29);
+            this.sendDataTextbox.TabIndex = 0;
+            // 
+            // sendDataButton
+            // 
+            this.sendDataButton.Enabled = false;
+            this.sendDataButton.Location = new System.Drawing.Point(801, 28);
+            this.sendDataButton.Name = "sendDataButton";
+            this.sendDataButton.Size = new System.Drawing.Size(126, 55);
+            this.sendDataButton.TabIndex = 1;
+            this.sendDataButton.Text = "Send";
+            this.sendDataButton.UseVisualStyleBackColor = true;
+            this.sendDataButton.Click += new System.EventHandler(this.sendDataButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 524);
+            this.Controls.Add(this.transmitGroup);
             this.Controls.Add(this.receiveGroup);
             this.Controls.Add(this.disconnectButton);
             this.Controls.Add(this.connectButton);
@@ -154,6 +189,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.receiveGroup.ResumeLayout(false);
             this.receiveGroup.PerformLayout();
+            this.transmitGroup.ResumeLayout(false);
+            this.transmitGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +207,9 @@
         private System.Windows.Forms.Button disconnectButton;
         private System.Windows.Forms.GroupBox receiveGroup;
         private System.Windows.Forms.TextBox receivedTextBox;
+        private System.Windows.Forms.GroupBox transmitGroup;
+        private System.Windows.Forms.TextBox sendDataTextbox;
+        private System.Windows.Forms.Button sendDataButton;
     }
 }
 
