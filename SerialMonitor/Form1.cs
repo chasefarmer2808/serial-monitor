@@ -119,6 +119,7 @@ namespace SerialMonitor
             disconnectButton.Enabled = false;
             sendDataTextbox.Enabled = false;
             sendDataButton.Enabled = false;
+            connectButton.Enabled = true;
             portSelect.Enabled = true;
             baudSelect.Enabled = true;
             scanButton.Enabled = true;
