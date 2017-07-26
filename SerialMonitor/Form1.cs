@@ -99,6 +99,9 @@ namespace SerialMonitor
             device.PortName = portSelect.SelectedItem.ToString();
             device.BaudRate = Convert.ToInt32(baudSelect.SelectedItem);
             device.Open();
+            portSelect.Enabled = false;
+            baudSelect.Enabled = false;
+            scanButton.Enabled = false;
         }
     }
 }
