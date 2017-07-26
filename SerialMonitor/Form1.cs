@@ -61,6 +61,14 @@ namespace SerialMonitor
             }
         }
 
+        private void Form1_FormClosing(Object sender, FormClosedEventArgs e)
+        {
+            if (device.IsOpen)
+            {
+                device.Close();
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -84,6 +92,13 @@ namespace SerialMonitor
         private void baudSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkPortSettings();
+        }
+
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+            device.PortName = portSelect.SelectedItem.ToString();
+            device.BaudRate = Convert.ToInt32(baudSelect.SelectedItem);
+            device.Open();
         }
     }
 }
