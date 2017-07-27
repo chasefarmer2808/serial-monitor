@@ -21,6 +21,7 @@ namespace SerialMonitor
             InitializeComponent();
             setAvailablePorts();
             setBaudSelect();
+            setDefaultSettings();
 
             device.DataReceived += new SerialDataReceivedEventHandler(serialPortDataRecieved);
         }
@@ -53,6 +54,12 @@ namespace SerialMonitor
         private void setBaudSelect()
         {
             baudSelect.Items.AddRange(BAUDS);
+        }
+
+        private void setDefaultSettings()
+        {
+            portSelect.SelectedIndex = 0;
+            baudSelect.SelectedIndex = 0;
         }
 
         private void checkPortSettings()
@@ -111,6 +118,7 @@ namespace SerialMonitor
             portSelect.Enabled = false;
             baudSelect.Enabled = false;
             scanButton.Enabled = false;
+            sendDataTextbox.Focus();
         }
 
         private void disconnectButton_Click(object sender, EventArgs e)
@@ -132,6 +140,7 @@ namespace SerialMonitor
                 device.Write(sendDataTextbox.Text);
                 sendDataTextbox.Text = "";
             }
+            sendDataTextbox.Focus();
         }
     }
 }
