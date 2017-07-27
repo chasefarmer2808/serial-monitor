@@ -38,8 +38,8 @@
             this.connectButton = new System.Windows.Forms.Button();
             this.disconnectButton = new System.Windows.Forms.Button();
             this.transmitGroup = new System.Windows.Forms.GroupBox();
-            this.sendDataTextbox = new System.Windows.Forms.TextBox();
             this.sendDataButton = new System.Windows.Forms.Button();
+            this.sendDataTextbox = new System.Windows.Forms.TextBox();
             this.receiveBoxLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.receiveGroup = new System.Windows.Forms.GroupBox();
             this.receivedTextBox = new System.Windows.Forms.TextBox();
@@ -124,33 +124,36 @@
             // 
             // transmitGroup
             // 
+            this.transmitGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.transmitGroup.Controls.Add(this.sendDataButton);
             this.transmitGroup.Controls.Add(this.sendDataTextbox);
-            this.transmitGroup.Location = new System.Drawing.Point(17, 408);
+            this.transmitGroup.Location = new System.Drawing.Point(3, 269);
             this.transmitGroup.Name = "transmitGroup";
-            this.transmitGroup.Size = new System.Drawing.Size(942, 106);
+            this.transmitGroup.Size = new System.Drawing.Size(948, 128);
             this.transmitGroup.TabIndex = 1;
             this.transmitGroup.TabStop = false;
             this.transmitGroup.Text = "Transmit Data";
             // 
-            // sendDataTextbox
-            // 
-            this.sendDataTextbox.Enabled = false;
-            this.sendDataTextbox.Location = new System.Drawing.Point(15, 45);
-            this.sendDataTextbox.Name = "sendDataTextbox";
-            this.sendDataTextbox.Size = new System.Drawing.Size(764, 29);
-            this.sendDataTextbox.TabIndex = 0;
-            // 
             // sendDataButton
             // 
             this.sendDataButton.Enabled = false;
-            this.sendDataButton.Location = new System.Drawing.Point(801, 28);
+            this.sendDataButton.Location = new System.Drawing.Point(801, 42);
             this.sendDataButton.Name = "sendDataButton";
             this.sendDataButton.Size = new System.Drawing.Size(126, 55);
             this.sendDataButton.TabIndex = 1;
             this.sendDataButton.Text = "Send";
             this.sendDataButton.UseVisualStyleBackColor = true;
             this.sendDataButton.Click += new System.EventHandler(this.sendDataButton_Click);
+            // 
+            // sendDataTextbox
+            // 
+            this.sendDataTextbox.Enabled = false;
+            this.sendDataTextbox.Location = new System.Drawing.Point(12, 54);
+            this.sendDataTextbox.Name = "sendDataTextbox";
+            this.sendDataTextbox.Size = new System.Drawing.Size(764, 29);
+            this.sendDataTextbox.TabIndex = 0;
             // 
             // receiveBoxLayoutPanel
             // 
@@ -160,19 +163,25 @@
             this.receiveBoxLayoutPanel.ColumnCount = 1;
             this.receiveBoxLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.receiveBoxLayoutPanel.Controls.Add(this.receiveGroup, 0, 0);
+            this.receiveBoxLayoutPanel.Controls.Add(this.transmitGroup, 0, 1);
             this.receiveBoxLayoutPanel.Location = new System.Drawing.Point(17, 85);
+            this.receiveBoxLayoutPanel.MaximumSize = new System.Drawing.Size(1000, 600);
             this.receiveBoxLayoutPanel.Name = "receiveBoxLayoutPanel";
-            this.receiveBoxLayoutPanel.RowCount = 1;
+            this.receiveBoxLayoutPanel.RowCount = 2;
             this.receiveBoxLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.receiveBoxLayoutPanel.Size = new System.Drawing.Size(927, 317);
+            this.receiveBoxLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 134F));
+            this.receiveBoxLayoutPanel.Size = new System.Drawing.Size(954, 400);
             this.receiveBoxLayoutPanel.TabIndex = 8;
             // 
             // receiveGroup
             // 
+            this.receiveGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.receiveGroup.Controls.Add(this.receivedTextBox);
             this.receiveGroup.Location = new System.Drawing.Point(3, 3);
             this.receiveGroup.Name = "receiveGroup";
-            this.receiveGroup.Size = new System.Drawing.Size(921, 297);
+            this.receiveGroup.Size = new System.Drawing.Size(948, 260);
             this.receiveGroup.TabIndex = 8;
             this.receiveGroup.TabStop = false;
             this.receiveGroup.Text = "Data Received";
@@ -185,16 +194,15 @@
             this.receivedTextBox.Name = "receivedTextBox";
             this.receivedTextBox.ReadOnly = true;
             this.receivedTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.receivedTextBox.Size = new System.Drawing.Size(915, 269);
+            this.receivedTextBox.Size = new System.Drawing.Size(942, 232);
             this.receivedTextBox.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 524);
+            this.ClientSize = new System.Drawing.Size(1192, 536);
             this.Controls.Add(this.receiveBoxLayoutPanel);
-            this.Controls.Add(this.transmitGroup);
             this.Controls.Add(this.disconnectButton);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.label1);
@@ -202,6 +210,7 @@
             this.Controls.Add(this.scanButton);
             this.Controls.Add(this.portSelectLabel);
             this.Controls.Add(this.portSelect);
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "Form1";
             this.Text = "Ground Station";
             this.Load += new System.EventHandler(this.Form1_Load);
