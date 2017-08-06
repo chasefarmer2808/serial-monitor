@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.device = new System.IO.Ports.SerialPort(this.components);
             this.portSelect = new System.Windows.Forms.ComboBox();
             this.portSelectLabel = new System.Windows.Forms.Label();
@@ -43,9 +48,13 @@
             this.receiveBoxLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.receiveGroup = new System.Windows.Forms.GroupBox();
             this.receivedTextBox = new System.Windows.Forms.TextBox();
+            this.chartLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.testChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.transmitGroup.SuspendLayout();
             this.receiveBoxLayoutPanel.SuspendLayout();
             this.receiveGroup.SuspendLayout();
+            this.chartLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testChart)).BeginInit();
             this.SuspendLayout();
             // 
             // device
@@ -131,7 +140,7 @@
             this.transmitGroup.Controls.Add(this.sendDataTextbox);
             this.transmitGroup.Location = new System.Drawing.Point(3, 269);
             this.transmitGroup.Name = "transmitGroup";
-            this.transmitGroup.Size = new System.Drawing.Size(948, 128);
+            this.transmitGroup.Size = new System.Drawing.Size(986, 128);
             this.transmitGroup.TabIndex = 1;
             this.transmitGroup.TabStop = false;
             this.transmitGroup.Text = "Transmit Data";
@@ -170,7 +179,7 @@
             this.receiveBoxLayoutPanel.RowCount = 2;
             this.receiveBoxLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.receiveBoxLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 134F));
-            this.receiveBoxLayoutPanel.Size = new System.Drawing.Size(954, 400);
+            this.receiveBoxLayoutPanel.Size = new System.Drawing.Size(992, 400);
             this.receiveBoxLayoutPanel.TabIndex = 8;
             // 
             // receiveGroup
@@ -181,7 +190,7 @@
             this.receiveGroup.Controls.Add(this.receivedTextBox);
             this.receiveGroup.Location = new System.Drawing.Point(3, 3);
             this.receiveGroup.Name = "receiveGroup";
-            this.receiveGroup.Size = new System.Drawing.Size(948, 260);
+            this.receiveGroup.Size = new System.Drawing.Size(986, 260);
             this.receiveGroup.TabIndex = 8;
             this.receiveGroup.TabStop = false;
             this.receiveGroup.Text = "Data Received";
@@ -194,14 +203,49 @@
             this.receivedTextBox.Name = "receivedTextBox";
             this.receivedTextBox.ReadOnly = true;
             this.receivedTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.receivedTextBox.Size = new System.Drawing.Size(942, 232);
+            this.receivedTextBox.Size = new System.Drawing.Size(980, 232);
             this.receivedTextBox.TabIndex = 0;
+            // 
+            // chartLayoutPanel
+            // 
+            this.chartLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chartLayoutPanel.Controls.Add(this.testChart);
+            this.chartLayoutPanel.Location = new System.Drawing.Point(1052, 12);
+            this.chartLayoutPanel.Name = "chartLayoutPanel";
+            this.chartLayoutPanel.Size = new System.Drawing.Size(476, 473);
+            this.chartLayoutPanel.TabIndex = 9;
+            // 
+            // testChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            chartArea2.Name = "ChartArea2";
+            this.testChart.ChartAreas.Add(chartArea1);
+            this.testChart.ChartAreas.Add(chartArea2);
+            legend1.Name = "Legend1";
+            this.testChart.Legends.Add(legend1);
+            this.testChart.Location = new System.Drawing.Point(3, 3);
+            this.testChart.Name = "testChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series2.ChartArea = "ChartArea2";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.Legend = "Legend1";
+            series2.Name = "testPoints";
+            this.testChart.Series.Add(series1);
+            this.testChart.Series.Add(series2);
+            this.testChart.Size = new System.Drawing.Size(477, 467);
+            this.testChart.TabIndex = 0;
+            this.testChart.Text = "chart1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 536);
+            this.ClientSize = new System.Drawing.Size(1550, 536);
+            this.Controls.Add(this.chartLayoutPanel);
             this.Controls.Add(this.receiveBoxLayoutPanel);
             this.Controls.Add(this.disconnectButton);
             this.Controls.Add(this.connectButton);
@@ -219,6 +263,8 @@
             this.receiveBoxLayoutPanel.ResumeLayout(false);
             this.receiveGroup.ResumeLayout(false);
             this.receiveGroup.PerformLayout();
+            this.chartLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.testChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,6 +285,8 @@
         private System.Windows.Forms.TableLayoutPanel receiveBoxLayoutPanel;
         private System.Windows.Forms.GroupBox receiveGroup;
         private System.Windows.Forms.TextBox receivedTextBox;
+        private System.Windows.Forms.FlowLayoutPanel chartLayoutPanel;
+        private System.Windows.Forms.DataVisualization.Charting.Chart testChart;
     }
 }
 

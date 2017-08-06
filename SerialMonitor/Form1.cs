@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.IO.Ports;
 
 namespace SerialMonitor
@@ -24,6 +25,10 @@ namespace SerialMonitor
             setDefaultSettings();
 
             device.DataReceived += new SerialDataReceivedEventHandler(serialPortDataRecieved);
+
+            testChart.Series["testPoints"].Points.AddXY(1, 1);
+            testChart.Series["testPoints"].Points.AddXY(2, 2);
+            testChart.Series["testPoints"].Points.AddXY(3, 3);
         }
 
         private void serialPortDataRecieved(object sender, SerialDataReceivedEventArgs e)
@@ -58,7 +63,11 @@ namespace SerialMonitor
 
         private void setDefaultSettings()
         {
-            portSelect.SelectedIndex = 0;
+            if (portSelect.Items.Count > 0)
+            {
+                portSelect.SelectedIndex = 0;
+            }
+
             baudSelect.SelectedIndex = 0;
         }
 
