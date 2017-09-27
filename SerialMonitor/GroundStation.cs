@@ -12,12 +12,12 @@ using System.IO.Ports;
 
 namespace SerialMonitor
 {
-    public partial class Form1 : Form
+    public partial class GroundStation : Form
     {
 
         public static readonly String[] BAUDS = { "9600", "11200" };
 
-        public Form1()
+        public GroundStation()
         {
             InitializeComponent();
             setAvailablePorts();
